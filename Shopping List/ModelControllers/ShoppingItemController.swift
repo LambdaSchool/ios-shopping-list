@@ -18,7 +18,9 @@ class ShoppingItemController {
             
             let userDefaults = UserDefaults.standard
             userDefaults.set(true, forKey: shoppingListInitializerKey)
+            saveToPersistenceStore()
         }
+        loadFromPersistenceStore()
     }
     
     // MARK: - Methods

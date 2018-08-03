@@ -14,7 +14,7 @@
         <!--Shopping List-->
         <scene sceneID="WIy-JU-IqN">
             <objects>
-                <collectionViewController id="RsV-SF-CTG" sceneMemberID="viewController">
+                <collectionViewController id="RsV-SF-CTG" customClass="ShoppingListCollectionViewController" customModule="Shopping_List" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="p3u-os-cWI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShoppingItemCell" id="ayE-qZ-fUu">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShoppingItemCell" id="ayE-qZ-fUu" customClass="ShoppingListCollectionViewCell" customModule="Shopping_List" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="164" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -42,9 +42,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baE-Yn-89i">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKY-HQ-Gyp">
                                                     <rect key="frame" x="0.0" y="26.5" width="164" height="182.5"/>
-                                                </imageView>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -55,6 +56,11 @@
                                     <constraint firstAttribute="trailing" secondItem="Jfx-vi-XSd" secondAttribute="trailing" id="hbS-fo-z9b"/>
                                     <constraint firstAttribute="bottom" secondItem="Jfx-vi-XSd" secondAttribute="bottom" id="qSw-ZG-rwd"/>
                                 </constraints>
+                                <size key="customSize" width="164" height="209"/>
+                                <connections>
+                                    <outlet property="imageButton" destination="LKY-HQ-Gyp" id="f2U-14-HFV"/>
+                                    <outlet property="nameTextLabel" destination="dvi-eK-FCi" id="oao-Kc-tol"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -74,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1080.8" y="62.518740629685162"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Detail View Controller-->
         <scene sceneID="ZbY-gD-zYZ">
             <objects>
-                <viewController id="bAm-jH-phQ" sceneMemberID="viewController">
+                <viewController id="bAm-jH-phQ" customClass="OrderDetailViewController" customModule="Shopping_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohe-9s-P7e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
