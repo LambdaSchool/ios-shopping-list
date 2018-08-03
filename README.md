@@ -29,7 +29,7 @@ This snippet has the names of the images in the assets folder. Use it to create 
     - `let itemNames = ["apple", "grapes", "milk", "muffin", "popcorn", "soda", "strawberries"]` 
     
 2. A collection view controller that shows a list of shopping items. It should be embedded in a navigation controller.
-3. The collection view controller's cell must display all the properties of the shopping item. The cell does not have to be laid out exactly like the screen recording.
+3. The collection view controller's cell must display all the properties of the shopping item.
 4. Upon selecting the custom cell, the item's `Bool` value should change from `true` to `false` or vice-versa.
 5. A bar button item on the collection view controller that performs a "Show" segue to a detail `UIViewController`. This `UIViewController` should allow the user to fill in their name and address. It should also display how many items have been added to "shopping list".
 6. In the same view controller, add a button that schedules a local notification saying that the user's delivery will be to their address in 15 minutes. The notification's content must contain their name and address.
