@@ -13,7 +13,7 @@ class ShoppingListCollectionViewController: UICollectionViewController, Shopping
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView?.reloadData()
+        self.collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
@@ -32,6 +32,7 @@ class ShoppingListCollectionViewController: UICollectionViewController, Shopping
         if segue.identifier == "ShowOrderDetail" {
             guard let vc = segue.destination as? OrderDetailViewController else { return }
             vc.shoppingItemController = shoppingItemController
+            vc.localNotificationHelper = localNotificationHelper
         }
     }
     
@@ -48,20 +49,19 @@ class ShoppingListCollectionViewController: UICollectionViewController, Shopping
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShoppingItemCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShoppingItemCell", for: indexPath) as? ShoppingListCollectionViewCell else { fatalError("Error getting CollectionViewCell") }
     
-        guard let shoppingItemCell = cell as? ShoppingListCollectionViewCell else { return cell }
         let shoppingItem = shoppingItemController.shoppingItems[indexPath.item]
-        shoppingItemCell.shoppingItem = shoppingItem
-        shoppingItemCell.shoppingItemController = shoppingItemController
-        shoppingItemCell.delegate = self
+        cell.shoppingItem = shoppingItem
+        cell.shoppingItemController = shoppingItemController
+        cell.delegate = self
         
-        return shoppingItemCell
-    }
-  
+        return cell
+    }  
     
     // MARK: - Properties
     
     var shoppingItemController = ShoppingItemController()
+    var localNotificationHelper = LocalNotificationHelper()
     
 }

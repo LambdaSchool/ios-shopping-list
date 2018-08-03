@@ -23,61 +23,26 @@ class OrderDetailViewController: UIViewController, UNUserNotificationCenterDeleg
     // MARK: - Methods
     
     @IBAction func sendOrder(_ sender: Any) {
-        let notificationCenter = UNUserNotificationCenter.current()
-
-        notificationCenter.getNotificationSettings() { (settings) in
-            guard settings.authorizationStatus == .authorized else { return }
-            if settings.alertSetting == .enabled {
-                self.scheduleNotification()
+        guard let localNotificationHelper = localNotificationHelper else { return }
+        localNotificationHelper.getAuthorizationStatus(completion: { (status) in
+            if status != .authorized {
+                self.requestNotificationAuthorization()
+            } else if status == .authorized {
+                guard let name = self.nameTextField.text,
+                    let address = self.addressTextField.text else { return }
+                self.localNotificationHelper?.scheduleDailyReminderNotification(name: name, address: address)
             }
-            else {
-                self.requestNotificationsAuthorization()
-            }
-        }
+        })
     }
     
-    // MARK: - NotificationHandlers
-    
-    private func scheduleNotification() {
-        let content = UNMutableNotificationContent()
-        guard let name = nameTextField?.text,
-            let address = addressTextField?.text else { return }
-        
-        content.title = "Delivery for \(name)"
-        content.body = "Your shopping items will be delivered to \(address) in 15 minutes"
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 900, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "NotificationID", content: content, trigger: trigger)
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-            if let error = error {
-                NSLog("There was an error scheduling a notification: \(error)")
-                return
+    private func requestNotificationAuthorization() {
+        self.localNotificationHelper?.requestAuthorization(completion: { (success) in
+            if success {
+                guard let name = self.nameTextField.text,
+                    let address = self.addressTextField.text else { return }
+                self.localNotificationHelper?.scheduleDailyReminderNotification(name: name, address: address)
             }
-            
-        }
-    }
-    
-    private func requestNotificationsAuthorization() {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            if let error = error {
-                NSLog("There was an error requesting authorization for notifications \(error)")
-                return
-            }
-            
-            NSLog("Notification authorization required? \(granted)")
-        }
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
-        return
+        })
     }
     
     private func updateViews() {
@@ -91,6 +56,7 @@ class OrderDetailViewController: UIViewController, UNUserNotificationCenterDeleg
     // MARK: - Properties
     
     var shoppingItemController: ShoppingItemController?
+    var localNotificationHelper: LocalNotificationHelper?
     
     @IBOutlet weak var descriptionTextLabel: UILabel!
     

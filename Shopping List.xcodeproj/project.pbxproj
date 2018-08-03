@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D58AA5E2114E45C007EDCB6 /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D58AA5D2114E45C007EDCB6 /* LocalNotificationHelper.swift */; };
 		3D644F5A2114A840003A61FE /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D644F592114A840003A61FE /* ShoppingItem.swift */; };
 		3D644F5C2114A8C2003A61FE /* ShoppingItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D644F5B2114A8C2003A61FE /* ShoppingItemController.swift */; };
 		3D644F5E2114B75C003A61FE /* ShoppingListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D644F5D2114B75C003A61FE /* ShoppingListCollectionViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D58AA5D2114E45C007EDCB6 /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 		3D644F592114A840003A61FE /* ShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
 		3D644F5B2114A8C2003A61FE /* ShoppingItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemController.swift; sourceTree = "<group>"; };
 		3D644F5D2114B75C003A61FE /* ShoppingListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCollectionViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D58AA5C2114E435007EDCB6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3D58AA5D2114E45C007EDCB6 /* LocalNotificationHelper.swift */,
+			);
+			name = Helpers;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		3D644F512114A7C4003A61FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +129,7 @@
 				3D644F562114A7D7003A61FE /* ViewControllers */,
 				3D644F552114A7D5003A61FE /* ModelControllers */,
 				3D644F542114A7D2003A61FE /* Models */,
+				3D58AA5C2114E435007EDCB6 /* Helpers */,
 				3D644F512114A7C4003A61FE /* Resources */,
 				4613E91D21143BFD00E7FF73 /* Info.plist */,
 			);
@@ -198,6 +210,7 @@
 				3D644F5E2114B75C003A61FE /* ShoppingListCollectionViewController.swift in Sources */,
 				3D644F5A2114A840003A61FE /* ShoppingItem.swift in Sources */,
 				3D644F5C2114A8C2003A61FE /* ShoppingItemController.swift in Sources */,
+				3D58AA5E2114E45C007EDCB6 /* LocalNotificationHelper.swift in Sources */,
 				3D644F602114B779003A61FE /* OrderDetailViewController.swift in Sources */,
 				3D644F622114B797003A61FE /* ShoppingListCollectionViewCell.swift in Sources */,
 				4613E91221143BFC00E7FF73 /* AppDelegate.swift in Sources */,
