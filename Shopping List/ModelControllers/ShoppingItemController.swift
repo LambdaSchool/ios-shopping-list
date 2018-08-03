@@ -31,6 +31,7 @@ class ShoppingItemController {
         item.addedToShoppingList = !item.addedToShoppingList
         shoppingItems.remove(at: index)
         shoppingItems.insert(item, at: index)
+        saveToPersistenceStore()
     }
     
     private func loadFromPersistenceStore() {

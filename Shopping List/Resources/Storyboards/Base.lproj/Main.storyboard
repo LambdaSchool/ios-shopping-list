@@ -36,16 +36,25 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jfx-vi-XSd">
                                             <rect key="frame" x="0.0" y="0.0" width="164" height="209"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvi-eK-FCi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le6-zW-mKA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKY-HQ-Gyp">
-                                                    <rect key="frame" x="0.0" y="26.5" width="164" height="182.5"/>
+                                                    <rect key="frame" x="0.0" y="24" width="164" height="161"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="addOrRemove:" destination="ayE-qZ-fUu" eventType="touchUpInside" id="qS9-lk-7PD"/>
+                                                    </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvi-eK-FCi">
+                                                    <rect key="frame" x="0.0" y="185" width="164" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -58,6 +67,7 @@
                                 </constraints>
                                 <size key="customSize" width="164" height="209"/>
                                 <connections>
+                                    <outlet property="hasBeenAddedTextLabel" destination="le6-zW-mKA" id="dUk-e8-vAM"/>
                                     <outlet property="imageButton" destination="LKY-HQ-Gyp" id="f2U-14-HFV"/>
                                     <outlet property="nameTextLabel" destination="dvi-eK-FCi" id="oao-Kc-tol"/>
                                 </connections>
@@ -112,6 +122,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69z-0P-59j">
                                         <rect key="frame" x="0.0" y="104.5" width="343" height="30"/>
                                         <state key="normal" title="Send order"/>
+                                        <connections>
+                                            <action selector="sendOrder:" destination="bAm-jH-phQ" eventType="touchUpInside" id="37T-0d-k5l"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -124,6 +137,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xLf-QN-KvL"/>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="Fg0-b9-ZLH" id="vdX-PM-6UO"/>
+                        <outlet property="descriptionTextLabel" destination="iqO-1V-R11" id="G7g-5s-gJC"/>
+                        <outlet property="nameTextField" destination="7Gj-V0-OdP" id="Oke-BS-C1I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9f-va-cbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
